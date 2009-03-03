@@ -47,6 +47,10 @@ module Nesta
       configuration[environment]["google_analytics_code"]
     end
     
+    def self.dash_key
+      configuration[environment]["dash_key"]
+    end
+    
     private
       def self.environment
         Sinatra::Application.environment.to_s

@@ -1,6 +1,8 @@
 require "rubygems"
 require "sinatra"
 
+require "fiveruns/dash/sinatra"
+
 def require_or_load(file)
   if Sinatra::Application.environment == :development
     load File.join(File.dirname(__FILE__), "#{file}.rb")
@@ -11,6 +13,10 @@ end
 
 require_or_load "lib/configuration"
 require_or_load "lib/models"
+
+configure :production do
+  Fiveruns::Dash::Sinatra.start(Nesta::Configuration.dash_key)
+end
 
 helpers do
   def set_common_variables
