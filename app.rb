@@ -1,7 +1,7 @@
 require "rubygems"
 require "sinatra"
-require "Builder"
-require "Haml"
+require "builder"
+require "haml"
 
 require "fiveruns/dash/sinatra"
 
