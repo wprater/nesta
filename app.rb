@@ -5,17 +5,9 @@ require "haml"
 
 require "fiveruns/dash/sinatra"
 
-def require_or_load(file)
-  if Sinatra::Application.environment == :development
-    load File.join(File.dirname(__FILE__), "#{file}.rb")
-  else
-    require file
-  end
-end
-
-require_or_load "lib/cache"
-require_or_load "lib/configuration"
-require_or_load "lib/models"
+require "lib/cache"
+require "lib/configuration"
+require "lib/models"
 
 set :cache_dir, "cache"
 set :cache_enabled, Nesta::Configuration.cache
@@ -28,6 +20,19 @@ helpers do
   def set_from_config(*variables)
     variables.each do |var|
       instance_variable_set("@#{var}", Nesta::Configuration.send(var))
+    end
+  end
+  
+  def set_from_page(*variables)
+    page = @article || @category
+    variables.each { |var| instance_variable_set("@#{var}", page.send(var)) }
+  end
+  
+  def set_title(page)
+    if page.respond_to?(:parent) && page.parent
+      @title = "#{page.heading} - #{page.parent.heading}"
+    else
+      @title = "#{page.heading} - #{Nesta::Configuration.title}"
     end
   end
   
@@ -106,14 +111,8 @@ get "#{Nesta::Configuration.article_prefix}/:permalink" do
   set_common_variables
   @article = Article.find_by_permalink(params[:permalink])
   raise Sinatra::NotFound if @article.nil?
-  @title = if @article.parent
-    "#{@article.heading} - #{@article.parent.heading}"
-  else
-    "#{@article.heading} - #{Nesta::Configuration.title}"
-  end
-  @description = @article.description
-  @keywords = @article.keywords
-  @comments = @article.comments
+  set_title(@article)
+  set_from_page(:description, :keywords, :comments)
   cache haml(:article)
 end
 
@@ -143,8 +142,7 @@ get "#{Nesta::Configuration.category_prefix}/:permalink" do
   set_common_variables
   @category = Category.find_by_permalink(params[:permalink])
   raise Sinatra::NotFound if @category.nil?
-  @title = "#{@category.heading} - #{Nesta::Configuration.title}"
-  @description = @category.description
-  @keywords = @category.keywords
+  set_title(@category)
+  set_from_page(:description, :keywords)
   cache haml(:category)
 end
