@@ -1,0 +1,23 @@
+title: "Effectif Development"
+subtitle: "dynamic scripting languages and agile web development"
+description: "Notes on the use of dynamic scripting languages for agile web development, covering Ruby on Rails, JavaScript and version control with git. Maintained by Graham Ashton."
+keywords: "Graham Ashton, ruby, javascript, web, git"
+
+author:
+  name: Graham Ashton
+  uri: http://effectif.com
+  email: graham@effectif.com
+
+# prefixes:
+#   category: 
+#   article: /articles
+
+development:
+  cache: false
+  content: content
+
+production:
+  cache: true
+  content: /var/apps/nesta/shared/content
+  google_analytics_code: "UA-4055128-1"
+  dash_key: "49c9863d2fd972ce1d5ae77dcd3b2545436e72ab"
