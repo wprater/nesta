@@ -31,7 +31,8 @@ namespace :vlad do
   end
   
   task :update do
-    Rake::Task['vlad:symlink_config_yml'].invoke
-    Rake::Task['vlad:symlink_attachments'].invoke
+    Rake::Task["vlad:symlink_config_yml"].invoke
+    Rake::Task["vlad:symlink_attachments"].invoke
+    Rake::Task["vlad:start_app"].invoke
   end
 end
