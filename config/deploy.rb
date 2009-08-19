@@ -31,8 +31,11 @@ namespace :vlad do
   end
   
   task :update do
-    Rake::Task["vlad:symlink_config_yml"].invoke
-    Rake::Task["vlad:symlink_attachments"].invoke
-    Rake::Task["vlad:start_app"].invoke
+    [:symlink_config_yml, :symlink_attachments].each do |task|
+      Rake::Task["vlad:#{task}"].invoke
+    end
   end
+  
+  desc "Deploy the code and restart the server"
+  task :deploy => [:update, :start_app]
 end
