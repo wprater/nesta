@@ -8,6 +8,6 @@ $(document).ready(function() {
           .append(", eh?"))
         .append($("<p/>").text("If this article doesn't solve your problem, why not ")
           .append($.qtm.link("effectif", "effectif-development", "tell us what you really need"))
-          .append("?")));
+          .append("? Maybe we'll write that article for you&hellip;")));
   }
 });
