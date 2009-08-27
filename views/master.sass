@@ -1,6 +1,7 @@
 !base_color = #555
 !pale_color = #777
 !pre_background = #DFF6FB
+!qtm_background = #FCF3C8
 !code_color = !pre_background - 140
 !pre_border = !pre_background - 24
 
@@ -259,6 +260,21 @@ a
     color: #44a
   &:hover
     color: #66c
+
+div.qtm-link
+  border-left = 3px "solid" (!qtm_background - #112)
+  padding: 0.5em 0.5em 0 0.5em
+  background-color = !qtm_background
+  
+  margin-bottom: 1em
+  
+  p
+    margin: 0
+    padding: 0 0 0.5em 0
+  
+  span
+    font-weight: bold
+    font-style: italic
 
 #footer
   clear: both
