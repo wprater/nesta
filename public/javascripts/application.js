@@ -10,7 +10,7 @@ $(document).ready(function() {
         .append($("<p/>")
           .text("If this page doesn't solve your problem, why not ")
           .append($.qtm.link(
-              "effectif", "effectif-development", "tell us what you really need"))
+            "effectif", "effectif-development", "tell us what you really need"))
           .append("? We'd&nbsp;love to write that article for you&hellip;"))
         .hide()
         .fadeIn(1000));
