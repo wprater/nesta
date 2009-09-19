@@ -52,6 +52,13 @@ ol, p, ul
 ul, ol
   :padding-left 2.5em
 
+strong
+  :font-weight bold
+  :color = !secondary
+
+em
+  :font-style italic
+
 a
   :color = !primary
   &:hover
@@ -118,7 +125,7 @@ body
   :padding-top 1.5em
 
   h2
-    :margin 0
+    :margin 0 0 1em 0
     :font-size 110%
 
   ol, ul
@@ -155,8 +162,9 @@ div.feed
   div.breadcrumb
     :margin-bottom 1.1em
 
-    :font-size 85%
+    :font-size 80%
     :font-family = !sans_serif
+    :line-height 120%
     
     :color = !body
 
@@ -183,6 +191,7 @@ div.feed
     
     &:last-child
       :border-bottom none
+      :padding-bottom 0
     
     h2,
     h3
@@ -216,7 +225,7 @@ div.feed
       
 
   blockquote
-    :margin 1.5em 5%
+    :margin 1.5em 0
     :padding 0.75em
 
     :background = #eee
@@ -259,7 +268,7 @@ div.feed
     :border-left = 3px "solid" !pre_border
     :padding 0.7em
 
-    :font-size 92%
+    :font-size 100%
     :background-color = !pre_background
 
     :overflow auto

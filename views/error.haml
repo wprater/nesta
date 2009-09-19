@@ -1,11 +1,16 @@
-.breadcrumb
-  %a{ :href => "/" }= @site_title
+#header
+  %p#logo
+    %a{ :href => "/" }= @heading
+    %small= no_widow @subtitle
 
 #sidebar
   = haml :categories, :layout => false
   = haml :feed, :layout => false
 
 #content
+  .breadcrumb
+    %a{ :href => "/" }= @site_title
+
   %h1 Sorry, something went wrong
 
   %p
