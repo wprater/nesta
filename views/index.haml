@@ -1,6 +1,7 @@
-%h1
-  = @heading
-  %small= @subtitle
+#header
+  %h1#logo
+    %a{ :href => "/" }= @heading
+    %small= no_widow @subtitle
 
 #sidebar
   = haml :categories, :layout => false

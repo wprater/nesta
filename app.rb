@@ -30,10 +30,15 @@ helpers do
     end
   end
   
+  def no_widow(text)
+    text.split[0...-1].join(" ") + "&nbsp;#{text.split[-1]}"
+  end
+  
   def set_common_variables
     @categories = Category.find_all
     @site_title = Nesta::Configuration.title
-    set_from_config(:google_analytics_code)
+    set_from_config(:title, :subtitle, :google_analytics_code)
+    @heading = @title
   end
 
   def article_path(article)
@@ -86,15 +91,14 @@ error do
   haml(:error)
 end unless Sinatra::Application.environment == :development
 
-get "/css/:sheet.css" do
+get %r{/css/([\w/]+).css} do
   content_type "text/css", :charset => "utf-8"
-  cache sass(params[:sheet].to_sym)
+  cache sass(params[:captures].first.to_sym)
 end
 
 get "/" do
   set_common_variables
-  set_from_config(:title, :subtitle, :description, :keywords)
-  @heading = @title
+  set_from_config(:description, :keywords)
   @title = "#{@title} - #{@subtitle}"
   @articles = Article.find_all[0..7]
   @body_class = "home"

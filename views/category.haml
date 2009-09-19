@@ -1,13 +1,18 @@
-.breadcrumb
-  %a{ :href => "/" }= @site_title
-  &gt;
-  = @category.heading
+#header
+  %p#logo
+    %a{ :href => "/" }= @heading
+    %small= no_widow @subtitle
 
 #sidebar
   = haml :categories, :layout => false
   = haml :feed, :layout => false
 
 #content
+  .breadcrumb
+    %a{ :href => "/" }= @site_title
+    &gt;
+    = @category.heading
+
   ~ @category.to_html
 
   - unless @category.articles.empty?

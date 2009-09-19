@@ -38,7 +38,7 @@ describe "home page" do
   end
   
   it "should display title and subtitle in title tag" do
-    body.should have_tag("title", "My blog - about stuff")
+    body.should have_tag("title", "My blog - a site about stuff")
   end
   
   it "should display site title in h1 tag" do
@@ -46,7 +46,7 @@ describe "home page" do
   end
   
   it "should display site subtitle in h1 tag" do
-    body.should have_tag("h1 small", /about stuff/)
+    body.should have_tag("h1 small", /a site about/)
   end
   
   it "should set description meta tag" do

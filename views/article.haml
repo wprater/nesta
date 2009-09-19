@@ -1,28 +1,32 @@
-.breadcrumb
-  %a{ :href => "/" }= @site_title
-  &gt;
-  - if @article.parent
-    %a{ :href => category_path(@article.parent) }= @article.parent.heading
-    &gt;
-  = @article.heading
+#header
+  %p#logo
+    %a{ :href => "/" }= @heading
+    %small= no_widow @subtitle
 
 #sidebar
   = haml :categories, :layout => false
   = haml :feed, :layout => false
 
 #content
+  .breadcrumb
+    %a{ :href => "/" }= @site_title
+    &gt;
+    - if @article.parent
+      %a{ :href => category_path(@article.parent) }= @article.parent.heading
+      &gt;
+    = @article.heading
+
   - if @article.date
     .date= format_date(@article.date)
   ~ @article.to_html
 
+  = haml :social, :layout => false
+
   - unless @article.categories.empty?
     .categories
-      Filed under
+      Filed under:
       - @article.categories.each do |category|
         %a{ :href => category_path(category) }= category.heading
-
-  = haml :social, :layout => false
-  = haml :feed, :locals => { :title => @site_title }, :layout => false
 
   - unless @comments.empty?
     .old-comments
