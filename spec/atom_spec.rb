@@ -42,7 +42,7 @@ describe "atom feed" do
   
   it "should have title and subtitle" do
     body.should have_tag("/feed/title[@type=text]", "My blog")
-    body.should have_tag("/feed/subtitle[@type=text]", "about stuff")
+    body.should have_tag("/feed/subtitle[@type=text]", "a site about stuff")
   end
   
   it "should include the author details" do

@@ -15,7 +15,7 @@ module ModelFactory
 
   def stub_configuration
     stub_config_key("title", "My blog")
-    stub_config_key("subtitle", "about stuff")
+    stub_config_key("subtitle", "a site about stuff")
     stub_config_key("description", "great web site")
     stub_config_key("keywords", "home, page")
     stub_env_config_key("content", FIXTURE_DIR)
