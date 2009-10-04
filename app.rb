@@ -4,17 +4,11 @@ require "builder"
 require "haml"
 require "sass"
 
-require "fiveruns/dash/sinatra"
-
 require "lib/cache"
 require "lib/configuration"
 require "lib/models"
 
 set :cache_enabled, Nesta::Configuration.cache
-
-configure :production do
-  Fiveruns::Dash::Sinatra.start(Nesta::Configuration.dash_key)
-end
 
 helpers do
   def set_from_config(*variables)

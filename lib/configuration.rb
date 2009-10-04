@@ -52,10 +52,6 @@ module Nesta
       get_path(File.join(content_path, "attachments"), basename)
     end
     
-    def self.dash_key
-      configuration[environment]["dash_key"]
-    end
-    
     private
       def self.environment
         Sinatra::Application.environment.to_s
