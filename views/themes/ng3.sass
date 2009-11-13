@@ -97,7 +97,7 @@ body
     
     a
       :text-decoration none
-      :text-shadow rgb(168, 179, 194) 1px 1px 2px
+      :text-shadow rgb(168, 179, 194) 0px 1px 2px, rgba(255, 255, 255, 0.8) 0 -1px 1px, rgba(47, 80, 134, 0.2) 0 0.25em 15px
 
       &:hover
         :color = !primary + #112
@@ -122,8 +122,9 @@ body
       :letter-spacing 0
 
 #content
-  :margin-right 13.5em
-  :padding 1.5em 1em 0 0
+  :float left
+  :width 37.5em
+  :padding-top 1.5em
 
 #sidebar
   :width 12em
@@ -185,6 +186,7 @@ div.feed
     :color = !body
 
   h2
+    :clear both
     :margin 1em 0 0.5em 0
     &.articles
       :margin-bottom 1em
@@ -229,7 +231,13 @@ div.feed
     :list-style-type decimal
   ul
     :list-style-type disc
-      
+  
+  img.flow
+    :float left
+    :margin 0 1em 1em 0
+    &.alternate
+      :float right
+      :margin 0 0 1em 1em
 
   blockquote
     :margin 1.5em 0
