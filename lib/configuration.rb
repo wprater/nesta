@@ -36,16 +36,16 @@ module Nesta
       get(environment)["google_analytics_code"]
     end
     
+    def self.disqus_short_name
+      configuration["disqus_short_name"]
+    end
+    
     def self.content_path(basename = nil)
       get_path(get(environment)["content"], basename)
     end
     
     def self.page_path(basename = nil)
       get_path(File.join(content_path, "pages"), basename)
-    end
-    
-    def self.comment_path(basename = nil)
-      get_path(File.join(content_path, "comments"), basename)
     end
     
     def self.attachment_path(basename = nil)

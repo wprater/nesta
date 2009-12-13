@@ -293,27 +293,16 @@ div.feed
       :border none
       :padding 0
 
-  div.old-comments
-    h2
-      :border-top = !border
-      :padding-top 0.5em
-    ol
-      :padding-left 0
-      :list-style none
+  #disqus_thread
+    :margin-top 0.5em
+    :border-top = 2px !border_type
+    :padding-top 0em
 
-      :font-size 90%
-
-      li
-        :margin-bottom 1em
-        :border-bottom = !border
-        :padding-bottom 0.7em
-
-        p.meta
-          :color = !primary
-
-          span
-            :font-weight bold
-            :color black
+    #dsq-content
+      .dsq-options,
+      .dsq-request-user-info
+        :padding-bottom 0.5em
+        :background none
 
 #footer
   :clear both
