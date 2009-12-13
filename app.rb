@@ -65,6 +65,14 @@ helpers do
   def format_date(date)
     date.strftime("%d %B %Y")
   end
+  
+  def haml(template, options = {}, locals = {})
+    super(template, options.merge(render_options(:haml, template)), locals)
+  end
+  
+  def sass(template, options = {}, locals = {})
+    super(template, options.merge(render_options(:sass, template)), locals)
+  end
 end
 
 not_found do
@@ -76,6 +84,36 @@ error do
   set_common_variables
   haml(:error)
 end unless Sinatra::Application.environment == :development
+
+# If you want to change Nesta's behaviour, you have two options:
+#
+# 1. Edit the code. You can merge in future upstream changes with git.
+# 2. Add code to local/app.rb that overrides the default behaviour,
+#    leaving the default files untouched (no "tricky" merging required).
+#
+# Neither way is necessarily *better* than the other; it's up to you to
+# choose the most appropriate course of action for your site. Merging future
+# changes in will typically be a straightforward task, but you may find
+# the ./local directory to be an easy way to manage more significant
+# changes to Nesta's behaviour that are likely to conflict with future
+# changes to the main code base.
+#
+# Note that you can modify the behaviour of any of the default objects
+# in local/app.rb, or replace any of the default view templates by
+# creating replacements of the same name in local/views.
+begin
+  require File.join(File.dirname(__FILE__), "local", "app")
+rescue LoadError
+end
+
+def render_options(engine, template)
+  local_views = File.join("local", "views")
+  if File.exist?(File.join(local_views, "#{template}.#{engine}"))
+    { :views => local_views }
+  else
+    {}
+  end
+end
 
 get %r{/css/([\w/]+).css} do
   content_type "text/css", :charset => "utf-8"
