@@ -1,7 +1,6 @@
 ._*
 .bundle
 .DS_Store
-etc
 config/config.yml
 config/deploy.rb
 content
