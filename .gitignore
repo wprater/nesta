@@ -7,3 +7,4 @@ content
 htdocs
 db/*.db
 public/cache
+public
