@@ -4,5 +4,6 @@
 config/config.yml
 config/deploy.rb
 content
+htdocs
 db/*.db
 public/cache
