@@ -19,6 +19,10 @@ module Nesta
     def self.subtitle
       configuration["subtitle"]
     end
+
+    def self.manifesto
+      configuration["manifesto"]
+    end
     
     def self.description
       configuration["description"]

@@ -1,0 +1,2 @@
+127.0.0.1 - - [26/Mar/2010:14:12:33 -0700] "GET / HTTP/1.1" 500 5877 "-" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10"
+127.0.0.1 - - [26/Mar/2010:14:12:34 -0700] "GET /favicon.ico HTTP/1.1" 500 5877 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_2; en-us) AppleWebKit/531.21.8 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10"

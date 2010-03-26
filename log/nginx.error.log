@@ -1,0 +1,24 @@
+*** Exception LoadError in PhusionPassenger::Rack::ApplicationSpawner (no such file to load -- haml) (process 32169):
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+	from ./app.rb:4
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+	from config.ru:3
+	from /Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/builder.rb:46:in `instance_eval'
+	from /Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/builder.rb:46:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1
+*** Exception LoadError in PhusionPassenger::Rack::ApplicationSpawner (no such file to load -- haml) (process 32169):
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+	from ./app.rb:4
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+	from /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+	from config.ru:3
+	from /Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/builder.rb:46:in `instance_eval'
+	from /Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/builder.rb:46:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1
+2010/03/26 14:12:54 [alert] 32157#0: unknown process 32160 exited on signal 2
+2010/03/26 14:39:41 [alert] 32485#0: unknown process 32487 exited on signal 2

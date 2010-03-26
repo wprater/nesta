@@ -66,6 +66,7 @@ class FileModel
     when :mdown
       Maruku.new(markup).to_html
     when :haml
+      # Haml::Template.options[:format] = :html5
       Haml::Engine.new(markup).to_html
     when :textile
       RedCloth.new(markup).to_html
@@ -169,6 +170,11 @@ class Page < FileModel
   
   def atom_id
     metadata("atom id")
+  end
+
+  # TODO set class to url part name / slug
+  def body_class
+    metadata("body class") || ''
   end
   
   def read_more

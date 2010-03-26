@@ -1,11 +1,69 @@
-%h1
+/ #yahoo-pipe{:style => "display:none"}
+/   = Net::HTTP.get_response(URI.parse("http://pipes.yahoo.com/pipes/pipe.run?_id=866c129920d1984e5091534df02d00df&_render=rss")).body
+
+%script{:type => "text/xml", :id => "pipe"}
+  = Net::HTTP.get_response(URI.parse("http://pipes.yahoo.com/pipes/pipe.run?_id=2cad56489dd4221dbd386713aa9dbf2c&_render=rss")).body
+
+:javascript
+  Ext.onReady(function() {
+    var homeSlides = new Tsf.site.HomeSlides('project-slides');
+    var feed = new Tsf.site.Feed('yahoo-pipe');
+  })
+
+%h1.header
   = @heading
   %small= @subtitle
 
-#sidebar
-  = haml :categories, :layout => false
-  = haml :feed, :layout => false
 
-#content
-  - @articles.each do |article|
-    = haml :summary, :layout => false, :locals => { :article => article, :heading => :h2 }
+#project-slides.slides
+  .overlay
+  #stage-image
+    %img{:src => "/images/empty.gif", :class => "scene"}
+    / %img{:src => "/images/empty.gif", :class => "scene"}
+    / %img{:src => "/images/empty.gif", :class => "object"}
+    
+  
+  .steps
+    %a{:class => "prev", :href => "#prev-project"} 
+      %img{:src => "/images/empty.gif"}
+    %a{:class => "next", :href => "#next-project"}
+      %img{:src => "/images/empty.gif"}
+    
+    .quote
+      %blockquote{:cite => "The Superformula"}
+        Today a brand breathes with every click, swipe, and post...
+        %a{:href => "process"} and we can help.
+
+    .step#nike-plus
+      %h1 Nike+ Application
+      %h3 UX / Creative / Technology
+      %img{:class => 'preload', :src => "/images/home_nikeplus.jpg"}
+
+    .step#crystal-mountain
+      %h1 Crystal Mountain
+      %h3 UX / Creative / Technology
+      %img{:class => 'preload', :src => "/images/home_crystal.jpg"}
+      
+
+    .step#olson-kundig
+      %h1 Olson Kundig
+      %h3 UX / Creative / Technology
+      %img{:class => 'preload', :src => "/images/home_olson.jpg"}
+
+    .step#chateau
+      %h1 Chateau St. Michelle
+      %h3 UX / Creative / Mobile
+      %img{:class => 'preload', :src => "/images/home_chateau.jpg"}
+
+#feeds
+
+  #news-stream
+  
+  #though-stream
+  
+  #photo-stream
+  
+  
+  
+  
+  

@@ -117,14 +117,16 @@ end
 get "/css/:sheet.css" do
   content_type "text/css", :charset => "utf-8"
   cache sass(params[:sheet].to_sym)
+  # cache less(params[:sheet].to_sym)
 end
 
 get "/" do
   set_common_variables
-  set_from_config(:title, :subtitle, :description, :keywords)
+  set_from_config(:title, :subtitle, :description, :keywords, :manifesto)
   @heading = @title
   @title = "#{@title} - #{@subtitle}"
   @articles = Page.find_articles[0..7]
+  # @articles = Page.find_by_path("#{Page.model_path}/home_projects")
   @body_class = "home"
   cache haml(:index)
 end
@@ -156,6 +158,7 @@ get "*" do
   @page = Page.find_by_path(File.join(params[:splat]))
   raise Sinatra::NotFound if @page.nil?
   set_title(@page)
+  @body_class = @page.body_class
   set_from_page(:description, :keywords)
   cache haml(:page)
 end
