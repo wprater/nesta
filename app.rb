@@ -162,7 +162,7 @@ get "*" do
   @page = Page.find_by_path(File.join(params[:splat]))
   raise Sinatra::NotFound if @page.nil?
   set_title(@page)
-  @body_class = @page.body_class
+  @body_class = @page.permalink
   set_from_page(:description, :keywords)
   cache haml(:page)
 end

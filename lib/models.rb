@@ -177,6 +177,10 @@ class Page < FileModel
     metadata("body class") || ''
   end
   
+  def title
+    metadata("title") || heading
+  end
+  
   def read_more
     metadata("read more") || "Continue reading"
   end
