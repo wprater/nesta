@@ -1,8 +1,8 @@
 / #yahoo-pipe{:style => "display:none"}
 /   = Net::HTTP.get_response(URI.parse("http://pipes.yahoo.com/pipes/pipe.run?_id=866c129920d1984e5091534df02d00df&_render=rss")).body
 
-%script{:type => "text/xml", :id => "pipe"}
-  = Net::HTTP.get_response(URI.parse("http://pipes.yahoo.com/pipes/pipe.run?_id=2cad56489dd4221dbd386713aa9dbf2c&_render=rss")).body
+/ %script{:type => "text/xml", :id => "pipe"}
+/   = Net::HTTP.get_response(URI.parse("http://pipes.yahoo.com/pipes/pipe.run?_id=2cad56489dd4221dbd386713aa9dbf2c&_render=rss")).body
 
 :javascript
   Ext.onReady(function() {
