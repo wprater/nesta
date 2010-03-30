@@ -4,19 +4,37 @@
 .wrapper-bottom
   .sitemap
     .section.first
-      %h4 Work/Clients
+      %h4 
+        %a{:href => "/work"} Work/Clients
       %ul
-        %li blah
+        %li 
+          %a{:href => "/work#project:lambert-bridge"} Lambert Bridge
+        %li 
+          %a{:href => "/work#project:crystal-mountain"} Crystal Mountain
+        %li 
+          %a{:href => "/work#project:chateau-michelle"} Chateau Ste. Michelle
+        %li 
+          %a{:href => "/work#project:nikeplus"} Nike+ Application
+        %li 
+          %a{:href => "/work#project:imagekind"} Imagekind
+        %li 
+          %a{:href => "/work#project:olson-kundig"} Olson Kundig
+        %li 
+          %a{:href => "/work#project:atigeo"} Ategio
+        %li 
+          %a{:href => "/work#project:windows-home-server"} Windows Home Server
         
     .section
-      %h4 Founding team
+      %h4 
+        %a{:href => "/team"} Founding team
       %ul
         %li William Prater
         %li Brian McGarvey
         %li Shawn Herron
       
     .section
-      %h4 Capabilities
+      %h4 
+        %a{:href => "/capabilities"} Capabilities
       %ul
         %li Strategy
         %li Experience Design
@@ -30,14 +48,14 @@
         911 Western Ave. Suite 420
         %br>          
         Seattle, WA 98104
-      %br>          
-      Tele +1.206.217.4595
-      %br>
-      Fax +1.206.374.8120
+      %p
+        Tele +1.206.217.4595
+        %br>
+        Fax +1.206.374.8120
 
       .actions
         %p 
-          %a{:href => "mailto:newbusiness@thesuperformula.com"} New Business Inquiries
+          %a.callout{:href => "mailto:newbusiness@thesuperformula.com"} New Business Inquiries
         
     .section
       %h4 Find us on
@@ -55,7 +73,7 @@
           %img{:src => '/images/empty.gif'}
           %span Last.fm
       %p 
-        %a.newsletter{:href => "#newsletter"} + Sign up for newsletter
+        %a.callout.newsletter{:href => "#newsletter"} + Sign up for newsletter
     
 
   / .social
