@@ -8,4 +8,4 @@ htdocs
 db/*.db
 public/cache
 public
-log
+log/*
