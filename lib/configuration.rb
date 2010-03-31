@@ -55,6 +55,10 @@ module Nesta
     def self.attachment_path(basename = nil)
       get_path(File.join(content_path, "attachments"), basename)
     end
+
+    def self.mailchimp
+      configuration["mailchimp"]
+    end
     
     private
       def self.environment

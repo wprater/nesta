@@ -33,9 +33,9 @@ helpers do
     text.split[0...-1].join(" ") + "&nbsp;#{text.split[-1]}"
   end
   
-  def production?
-    Sinatra::Application.environment == :production
-  end
+  # def production?
+  #   Sinatra::Application.environment == :production
+  # end
   
   def set_common_variables
     @menu_items = Page.menu_items

@@ -28,17 +28,23 @@
       %h4 
         %a{:href => "/team"} Founding team
       %ul
-        %li William Prater
-        %li Brian McGarvey
-        %li Shawn Herron
+        %li 
+          %a{:href => "/team"} William Prater
+        %li 
+          %a{:href => "/team"} Brian McGarvey
+        %li 
+          %a{:href => "/team"} Shawn Herron
       
     .section
       %h4 
         %a{:href => "/capabilities"} Capabilities
       %ul
-        %li Strategy
-        %li Experience Design
-        %li Technology
+        %li 
+          %a{:href => "/capabilities"} Strategy
+        %li 
+          %a{:href => "/capabilities"} Experience Design
+        %li 
+          %a{:href => "/capabilities"} Technology
 
     .section.address
       %h4 Contact us
@@ -73,12 +79,8 @@
           %img{:src => '/images/empty.gif'}
           %span Last.fm
       %p 
-        %a.callout.newsletter{:href => "#newsletter"} + Sign up for newsletter
-    
-
-  / .social
-  /   %a.icon.facebook{:href => 'http://facebook.com/TheSuperformula'} Facebook
-  /   %a.icon.twitter{:href => 'http://facebook.com/TheSuperformula'} Twiiter
-  /   %a.icon.linkedin{:href => 'http://facebook.com/TheSuperformula'} LinkedIn
-  /   %a.icon.grooveshark{:href => 'http://facebook.com/TheSuperformula'} Rock out like The Super does
-  /   %a.icon.mailinglist{:href => 'http://facebook.com/TheSuperformula'} Join our mailing list
+        %form#newsletter-subscribe
+          %label.callout.newsletter + Sign up for newsletter
+          %input{:name => "email", :type => "text", :value => "Enter your email", :class => "hint"}
+          
+          
