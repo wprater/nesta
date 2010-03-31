@@ -12,6 +12,8 @@ end
 
 # Action to subscribe users to our mailing list
 post '/subscribe' do
+  return '' if request.params['email'].empty?
+  
   chimp = Chimp.new
   chimp.add(request.params['email'])
   return ''
